@@ -6,7 +6,11 @@
 class Arbol
 {
 public:
-    Arbol();
+    Arbol()
+    {
+        raiz = NULL;
+        graphviz = "";
+    }
 
     struct Nodo
     {
@@ -18,7 +22,6 @@ public:
     typedef struct Nodo *ABB;
     ABB raiz;
     string graphviz;
-
 
     ABB crearNodo(string nombre)
     {

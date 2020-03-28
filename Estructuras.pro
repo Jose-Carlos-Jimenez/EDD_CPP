@@ -4,10 +4,13 @@ CONFIG -= app_bundle
 CONFIG -= qt
 
 SOURCES += \
-        arbol.cpp \
         jugador.cpp \
         main.cpp
 
 HEADERS += \
     arbol.h \
-    jugador.h
+    cola.h \
+    jugador.h \
+    listacirculardoble.h \
+    listadoblementeenlazada.h \
+    listasimple.h
