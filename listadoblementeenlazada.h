@@ -1,7 +1,8 @@
 #ifndef LISTADOBLEMENTEENLAZADA_H
 #define LISTADOBLEMENTEENLAZADA_H
 
-#endif // LISTADOBLEMENTEENLAZADA_H
+#include "MatrizDispersa.h"
+
 template <class T>
 class NodeLD
 {
@@ -14,16 +15,17 @@ public:
     int position;
 
     /*Constructor*/
+    NodeLD():next(0), previous(0){};
     NodeLD(T data):next(0),previous(0){this->data = data;};
 
     /*Methods*/
+    T getData();
 
 };
 
 template<class T>
 class ListaDoblementeEnlazada
 {
-
 public:
     /*Atributes*/
     int lenght;
@@ -40,9 +42,34 @@ public:
     void insertAt(T,int);
     void deleteFirst();
     void deleteLast();
-    T getNode(int);
+    string getGraph();
+    NodeLD<T> * getNode(int);
 };
 
+template <class T>
+string ListaDoblementeEnlazada<T>::getGraph()
+{
+    string graph = "digraph D{\n\tnode[shape=LR]\n\trankdir=LR";
+    NodeLD<T> *aux = head;
+    while(aux != NULL)
+    {
+        if(aux->previous != 0)
+        {
+            graph += "\t\"";
+            graph += aux->data.getDatos();
+            graph += "\" -> \"";
+            graph += aux->previous->data.getDatos();
+            graph += "\";\n\t\"";
+            graph += aux->previous->data.getDatos();
+            graph += "\" -> \"";
+            graph += aux->data.getDatos();
+            graph += "\";\n";
+        }
+        aux = aux->previous;
+    }
+    graph+= "}";
+    return graph;
+}
 
 /*Constructor*/
 template <class T> ListaDoblementeEnlazada<T>::ListaDoblementeEnlazada()
@@ -137,7 +164,7 @@ template <class T> void ListaDoblementeEnlazada<T>::deleteLast()
 }
 
 /*Get a node at n position*/
-template <class T> T ListaDoblementeEnlazada<T>::getNode(int n)
+template <class T> NodeLD<T> * ListaDoblementeEnlazada<T>::getNode(int n)
 {
     if(!isEmpty())
     {
@@ -146,7 +173,7 @@ template <class T> T ListaDoblementeEnlazada<T>::getNode(int n)
         {
             temp = temp->next;
         }
-        return  temp->data;
+        return  temp;
     }
     return 0;
 }
@@ -167,5 +194,12 @@ template <class T> void ListaDoblementeEnlazada<T>::insertAt(T value,int n)
         aux->previous->next = newData;
     }
     aux->previous = newData;
-
 }
+
+template <class T>
+T NodeLD<T>::getData()
+{
+    return this->data;
+}
+#endif // LISTADOBLEMENTEENLAZADA_H
+

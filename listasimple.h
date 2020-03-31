@@ -1,5 +1,9 @@
 #ifndef LISTASIMPLE_H
 #define LISTASIMPLE_H
+#include <string>
+#include "jugador.h"
+
+using namespace std;
 
 template <class T> class NodoLS
 {
@@ -48,6 +52,56 @@ public:
     NodoLS<T>* ultimo();
     void eliminar(T entrada);
     NodoLS<T>* buscarLista(T destino);
+    string getGraph(char l);
+    string getGraph(int c);
+};
+
+template <class T>
+string ListaSimple<T>::getGraph(char l)
+{
+    cout << l << endl;
+    string graph = "digraph D{\n\tnode[shape=box]\n\trankdir=LR\n";
+    NodoLS<T> *aux = primero;
+    while(aux != 0)
+    {
+        if(aux->enlaceNodo()!= NULL)
+        {
+            graph+="\t\"";
+            graph+= aux->datoNodo().nombre;
+            graph+=", ";
+            graph+=to_string(aux->datoNodo().puntos);
+            graph += "\" -> \"";
+            graph += aux->enlaceNodo()->datoNodo().nombre;
+            graph+=", ";
+            graph+=to_string(aux->enlaceNodo()->datoNodo().puntos);
+            graph += "\";\n";
+        }
+        aux = aux->enlaceNodo();
+    }
+    graph+= "}";
+    return  graph;
+};
+
+template <class T>
+string ListaSimple<T>::getGraph(int opc)
+{
+    cout << opc << endl;
+    string graph = "digraph D{\n\tnode[shape=box]\n\trankdir=LR\n";
+    NodoLS<T> *aux = primero;
+    while(aux != 0)
+    {
+        if(aux->enlaceNodo()!= NULL)
+        {
+            graph+="\t\"";
+            graph+= to_string((int)aux->datoNodo());
+            graph += "\" -> \"";
+            graph += to_string((int)aux->enlaceNodo()->datoNodo());
+            graph += "\";\n";
+        }
+        aux = aux->enlaceNodo();
+    }
+    graph+= "}";
+    return  graph;
 };
 
 // inserción por la cabeza de la lista
