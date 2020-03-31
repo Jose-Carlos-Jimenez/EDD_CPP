@@ -8,6 +8,7 @@ SOURCES += \
         main.cpp
 
 HEADERS += \
+    JSON_Reader.h \
     arbol.h \
     cola.h \
     ficha.h \

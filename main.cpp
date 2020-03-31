@@ -52,22 +52,23 @@ int main()
     /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<PRUEBA ARBOL>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
 
     /*Arbol *nuevo = new Arbol();
-    nuevo->insertar(nuevo->raiz, "Pedro");
-    nuevo->insertar(nuevo->raiz, "Pizarro");
-    nuevo->insertar(nuevo->raiz, "Pisa");
-    nuevo->insertar(nuevo->raiz, "Pocho");
-    nuevo->insertar(nuevo->raiz, "Podio");
-    nuevo->insertar(nuevo->raiz, "Podor");
-    nuevo->insertar(nuevo->raiz, "Pudor");
+    nuevo->insertar(nuevo->raiz, "Heidy");
+    nuevo->insertar(nuevo->raiz, "Eduardo");
+    nuevo->insertar(nuevo->raiz, "Antonio");
+    nuevo->insertar(nuevo->raiz, "Rodrigo");
+    nuevo->insertar(nuevo->raiz, "Carlos");
 
+    //La gráfica del arbol depende de el orden en que esto sean insertados.
     nuevo->inOrder(nuevo->raiz);
     cout<<"-------------------------------" << endl;
     nuevo->preOrder(nuevo->raiz);
     cout<<"-------------------------------" << endl;
-    nuevo->posOrder(nuevo->raiz);*/
-
-
-
+    nuevo->posOrder(nuevo->raiz);
+    cout << "--------------------------------" << endl;
+    cout << nuevo->graphInOrder(nuevo->raiz) << endl;
+    cout << nuevo->graphPreOrder(nuevo->raiz) << endl;
+    cout << nuevo->graphPosOrder(nuevo->raiz) << endl;
+    cout << nuevo->graphTree(nuevo->raiz) << endl;*/
 
     /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<PRUEBA LISTA SIMPLE>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
 
