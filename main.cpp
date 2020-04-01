@@ -1,4 +1,13 @@
 #include <iostream>
+#include <QCoreApplication>
+#include <QFile>
+#include <QJsonDocument>
+#include <QJsonObject>
+#include <QJsonValue>
+#include <QJsonArray>
+#include <QDebug>
+#include <iostream>
+
 #include "ListaCircularDoble.h"
 #include "arbol.h"
 #include "cola.h"
@@ -8,6 +17,49 @@
 #include "ficha.h"
 
 using namespace std;
+
+void jsonExample(QString filename){
+    QFile file;//Abro un archivo
+    QString val;//Creo un valor
+    file.setFileName(filename);//Le asigno la ruta
+    file.open(QIODevice::ReadOnly|QIODevice::Text);
+    val = file.readAll();
+    file.close();
+    QJsonDocument d = QJsonDocument::fromJson(val.toUtf8());
+    QJsonObject jsonObject = d.object();
+    qDebug()<< "Dimension:";
+    qDebug()<< jsonObject.value(QStringLiteral("dimension")).toInt();//Leer dimensión.
+
+    QJsonObject casillas = jsonObject["casillas"].toObject();
+    QJsonArray jsonArray3 = casillas["dobles"].toArray();
+    QJsonArray jsonArray4 = casillas["triples"].toArray();//Leer las casillas
+
+    foreach (const QJsonValue & value, jsonArray3) {
+        QJsonObject obj = value.toObject();
+        QJsonArray arrayEvento = obj["dobles"].toArray();//Leer cuales son dobles
+        qDebug()<< "Coordenada doble x y ";
+        qDebug()<< obj.value(QStringLiteral("x")).toInt();
+        qDebug()<< obj.value(QStringLiteral("y")).toInt();
+    }
+
+    foreach (const QJsonValue & value, jsonArray4) {
+        QJsonObject obj = value.toObject();
+        QJsonArray arrayEvento = obj["triples"].toArray();//Leer cuales son triples
+        qDebug()<< "Coordenada trple x y ";
+        qDebug()<< obj.value(QStringLiteral("x")).toInt();
+        qDebug()<< obj.value(QStringLiteral("y")).toInt();
+    }
+
+    QJsonArray jsonArray5 = jsonObject["diccionario"].toArray();//Leer las palabras en el diccionario
+    qDebug()<< "DICCIONARIO";
+    foreach (const QJsonValue & value, jsonArray5) {
+        QJsonObject obj = value.toObject();//Lo vuelve un objeto
+        QJsonObject palabra = obj["palabra"].toObject();//La palabra la vuelve un objeto
+        qDebug()<< "Palabra de diccionario";
+        qDebug() << obj.value(QStringLiteral("palabra")).toString();//Obtiene la palabra que está en el objeto
+    }
+}
+
 
 int main()
 {
