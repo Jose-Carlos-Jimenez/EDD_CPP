@@ -61,6 +61,7 @@ string ListaSimple<T>::getGraph(char l)
 {
     cout << l << endl;
     string graph = "digraph D{\n\tnode[shape=box]\n\trankdir=LR\n";
+    graph.append("color= green;graph[bgcolor = black];node[style = dashed color = yellow fontcolor = white]edge[color = red fontcolor = white]");
     NodoLS<T> *aux = primero;
     while(aux != 0)
     {
@@ -87,6 +88,7 @@ string ListaSimple<T>::getGraph(int opc)
 {
     cout << opc << endl;
     string graph = "digraph D{\n\tnode[shape=box]\n\trankdir=LR\n";
+    graph.append("color= green;graph[bgcolor = black];node[style = dashed color = yellow fontcolor = white]edge[color = red fontcolor = white]");
     NodoLS<T> *aux = primero;
     while(aux != 0)
     {

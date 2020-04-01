@@ -50,24 +50,39 @@ template <class T>
 string ListaDoblementeEnlazada<T>::getGraph()
 {
     string graph = "digraph D{\n\tnode[shape=LR]\n\trankdir=LR";
+    graph.append("\n\tcolor= green;\n\tgraph[bgcolor = black];\n\tnode[style = dashed color = yellow fontcolor = white]\n\tedge[color = red fontcolor = white];");
+
     NodeLD<T> *aux = head;
+    int cont = 0;
     while(aux != NULL)
     {
-        if(aux->previous != 0)
-        {
-            graph += "\t\"";
-            graph += aux->data.getDatos();
-            graph += "\" -> \"";
-            graph += aux->previous->data.getDatos();
-            graph += "\";\n\t\"";
-            graph += aux->previous->data.getDatos();
-            graph += "\" -> \"";
-            graph += aux->data.getDatos();
-            graph += "\";\n";
-        }
+        graph += "\n\t\"";
+        graph +=aux->data.letra;
+        graph += to_string(cont);
+        graph += "\"[label =\"";
+        graph +=aux->data.getDatos();
+        graph +="\"];";
+        cont++;
         aux = aux->previous;
     }
-    graph+= "}";
+    aux = head;
+    cont = 0;
+    while(aux->previous != NULL)
+    {
+        if(aux)
+        {
+            graph += "\n\t\"";
+            graph +=aux->data.letra;
+            graph +=to_string(cont);
+            graph += "\" -> \"";
+            graph += aux->previous->data.letra;
+            graph += to_string(cont + 1);
+            graph += "\" [dir = both];";
+            cont++;
+            aux = aux->previous;
+        }
+    }
+    graph+= "\n}";
     return graph;
 }
 

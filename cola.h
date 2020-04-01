@@ -1,6 +1,8 @@
 #ifndef COLA_H
 #define COLA_H
 
+#include <string>
+
 template <class T>
 class Cola
 {
@@ -29,6 +31,7 @@ public:
     T quitar();
     T frenteCola() const;
     bool colaVacia() const;
+    std::string graph();
     ~Cola()
     {
         Cola<T>::borrarCola();
@@ -90,6 +93,43 @@ template <class T>
 bool Cola<T> :: colaVacia() const
 {
     return frente == 0;
+}
+
+template <class T>
+std::string Cola<T>::graph()
+{
+    std::string graphviz = "digraph{\n\tnode[shape=box]\n";
+    graphviz.append("\t\n\tcolor= green;\n\tgraph[bgcolor = black];node[style = dashed color = yellow fontcolor = white]edge[color = red fontcolor = white]");
+    NodoCola *tmp = frente;
+    int cont= 0;
+    while(tmp != NULL)
+    {
+        graphviz +="\n\t\"";
+        graphviz +=tmp->elemento.letra;
+        graphviz +=std::to_string(cont);
+        graphviz +="\"[label=\"" ;
+        graphviz+=tmp->elemento.getDatos();
+        graphviz +="\"];";
+        tmp = tmp->siguiente;
+        cont++;
+    }
+
+    tmp = frente;
+    cont = 0;
+    while(tmp->siguiente != NULL)
+    {
+        graphviz +="\n\t\"";
+        graphviz +=tmp->elemento.letra ;
+        graphviz +=std::to_string(cont);
+        graphviz +="\" -> \"";
+        graphviz +=tmp->siguiente->elemento.letra;
+        graphviz +=std::to_string(cont+1);
+        graphviz +="\"";
+        tmp = tmp->siguiente;
+        cont++;
+    }
+    graphviz.append("\n}");
+    return graphviz;
 }
 
 #endif // COLA_H

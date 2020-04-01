@@ -25,6 +25,10 @@ struct NodoOrtogonal
         arriba = abajo = izquierda = derecha = NULL;
     }
 
+    string getId()
+    {
+        return "X" + to_string(x) + "Y" + to_string(y);
+    }
 };
 
 /*Lista vertical la cual servirá para los nodos que llevaran datos.*/
@@ -199,6 +203,7 @@ struct ListaHorizontal
 template <class T>
 struct NodoCabecera
 {
+public:
     int x;
     NodoCabecera *siguiente;
     NodoCabecera *anterior;
@@ -544,6 +549,197 @@ struct MatrizDispersa
                 insertar(j, i, 0);
             }
         }
+    }
+
+    void graphMatrix()
+    {
+        string graphviz= "digraph{\n\trankdir=TB;\n\tnode[shape=rectangle, height=0.5, width=0.5];\n\tgraph[nodesep=0.5];";
+        graphviz.append("color= green;graph[bgcolor = black];node[style = dashed color = yellow fontcolor = white]edge[color = red fontcolor = white]");
+        /*DECLARANDO CABECERAS HORIZONTALES Y VERTICALES.*/
+        NodoCabecera<T> *auxX = c->primero;
+        while(auxX != NULL)
+        {
+            if(auxX->columna->primero)
+            {
+                graphviz +="\n\t\"X";
+                graphviz +=to_string(auxX->x);
+                graphviz +="\"[label=";
+                graphviz +="\"X";
+                graphviz +=to_string(auxX->x);
+                graphviz +="\" group=";
+                graphviz +=to_string(auxX->x);
+                graphviz +=" color=red];";
+            }
+            auxX = auxX->siguiente;
+        }
+        NodoLateral<T> *auxY = l->primero;
+        while(auxY != NULL)
+        {
+            if(auxY != NULL)
+            {
+                graphviz +="\n\t\"Y";
+                graphviz +=to_string(auxY->y);
+                graphviz +="\"[label=";
+                graphviz +="\"Y";
+                graphviz +=to_string(auxY->y);
+                graphviz +="\" group=0 color=red];";
+            }
+            auxY = auxY->siguiente;
+        }
+        /*DECLARANDO EL NODO PARA QUE REPRESENTA A LOS EJES*/
+        graphviz += "\n\t\"0\"[label=\"Y/X\" group=0];";
+
+        /*AHORA DECLARAREMOS LAS CONEXIONES ENTRE LOS NODOS X y LOS Y y EL EJE DE COORDENADAS*/
+        //En X:
+        auxX = c->primero;
+        graphviz +="\n\t\"0\" -> \"X";
+        graphviz += to_string(auxX->x);
+        graphviz +="\";";
+        while(auxX->siguiente != NULL)
+        {
+            graphviz+= "\n\t\"X";
+            graphviz += to_string(auxX->x);
+            graphviz +="\" -> ";
+            graphviz+= "\"X";
+            graphviz += to_string(auxX->siguiente->x);
+            graphviz+= "\";";
+            auxX = auxX->siguiente;
+        }
+        //En Y:
+        auxY = l->primero;
+        graphviz +="\n\t\"0\" -> \"Y";
+        graphviz += to_string(auxY->y);
+        graphviz +="\";";
+        while(auxY->siguiente != NULL)
+        {
+            graphviz+= "\n\t\"Y";
+            graphviz += to_string(auxY->y);
+            graphviz +="\" -> ";
+            graphviz+= "\"Y";
+            graphviz += to_string(auxY->siguiente->y);
+            graphviz+= "\";";
+            auxY = auxY->siguiente;
+        }
+        graphviz+="\n\t{rank=same; \"0\";";
+        auxX = c->primero;
+        while(auxX != NULL)
+        {
+            graphviz +="\"X";
+            graphviz +=to_string(auxX->x);
+            graphviz +="\";";
+            auxX = auxX->siguiente;
+        }
+        graphviz+="}";
+
+        /*DECLARANDO LOS NODOS QUE CONTIENEN DATOS*/
+        auxX= c->primero;
+        while(auxX != NULL)
+        {
+            NodoOrtogonal<T> *nodoOrt = auxX->columna->primero;
+            while(nodoOrt != NULL)
+            {
+                graphviz +="\n\t\"";
+                graphviz += nodoOrt->getId();
+                graphviz +="\" [label=\"";
+                graphviz +=nodoOrt->dato;
+                graphviz +="\" group=";
+                graphviz +=to_string(nodoOrt->x);
+                graphviz +="];";
+                nodoOrt = nodoOrt->abajo;
+            }
+            auxX = auxX->siguiente;
+        }
+
+        /*DECLARANDO LOS NODOS QUE TIENEN CONEXIÓN CON CADA CABECERA*/
+        auxX = c->primero;
+        while(auxX != NULL)
+        {
+            graphviz +="\n\t\"X";
+            graphviz += to_string(auxX->x);
+            graphviz +="\" -> \"";
+            graphviz += auxX->columna->primero->getId();
+            graphviz +="\";";
+            auxX = auxX->siguiente;
+        }
+
+        auxY = l->primero;
+        while(auxY != NULL)
+        {
+            graphviz +="\n\t\"Y";
+            graphviz += to_string(auxY->y);
+            graphviz +="\" -> \"";
+            graphviz += auxY->fila->primero->getId();
+            graphviz +="\";";
+            auxY = auxY->siguiente;
+        }
+        /*DECLARANDO LAS CONEXIONES DE LOS NODOS CON DATOS*/
+        auxX = c->primero;
+        while(auxX != NULL)
+        {
+            NodoOrtogonal<T> *auxNodo = auxX->columna->primero;
+            while(auxNodo != NULL)
+            {
+                if(auxNodo->izquierda)
+                {
+                    graphviz += "\n\t\"";
+                    graphviz += auxNodo->getId();
+                    graphviz += "\" -> ";
+                    graphviz += auxNodo->izquierda->getId();
+                    graphviz += ";";
+                }
+                if(auxNodo->derecha)
+                {
+                    graphviz += "\n\t\"";
+                    graphviz += auxNodo->getId();
+                    graphviz += "\" -> ";
+                    graphviz += auxNodo->derecha->getId();
+                    graphviz += ";";
+                }
+                if(auxNodo->arriba)
+                {
+                    graphviz += "\n\t\"";
+                    graphviz += auxNodo->getId();
+                    graphviz += "\" -> ";
+                    graphviz += auxNodo->arriba->getId();
+                    graphviz += ";";
+                }
+                if(auxNodo->abajo)
+                {
+                    graphviz += "\n\t\"";
+                    graphviz += auxNodo->getId();
+                    graphviz += "\" -> ";
+                    graphviz += auxNodo->abajo->getId();
+                    graphviz += ";";
+                }
+                auxNodo = auxNodo->abajo;
+            }
+            auxX = auxX->siguiente;
+        }
+
+        /*DECLARANDO LOS RANGOS*/
+        auxY = l->primero;
+
+        while(auxY != NULL)
+        {
+            graphviz +="\n\t{rank=same;";
+            graphviz +="\"Y";
+            graphviz +=to_string(auxY->y);
+            graphviz +="\";";
+            NodoOrtogonal<T> *auxNodo = auxY->fila->primero;
+            while(auxNodo != NULL)
+            {
+                graphviz +="\"";
+                graphviz +=auxNodo->getId();
+                graphviz +="\";";
+                auxNodo = auxNodo->derecha;
+            }
+            graphviz +="}";
+            auxY = auxY->siguiente;
+        }
+
+        graphviz += "\n}";
+        cout << graphviz << endl;
+
     }
 };
 

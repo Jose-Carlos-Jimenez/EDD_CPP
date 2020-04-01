@@ -70,36 +70,186 @@ int main()
     /*ListaDoblementeEnlazada<ficha> *nueva = new ListaDoblementeEnlazada<ficha>();
     nueva->insertLast(*new ficha('A',2));
     nueva->insertLast(*new ficha('B', 3));
-    nueva->insertLast(*new ficha('C', 2));
     nueva->insertLast(*new ficha('D', 6));
-
-    NodeLD<ficha> *aux = nueva->head;
-    while(aux != 0)
-    {
-        cout<< aux->data.getDatos()<< endl;
-        aux = aux->previous;
-    }
+    nueva->insertLast(*new ficha('C', 2));
+    nueva->insertLast(*new ficha('D', 63));
+    nueva->insertLast(*new ficha('A',2));
+    nueva->insertLast(*new ficha('B', 3));
+    nueva->insertLast(*new ficha('D', 6));
+    nueva->insertLast(*new ficha('C', 2));
+    nueva->insertLast(*new ficha('D', 63));
+    nueva->insertLast(*new ficha('A',2));
+    nueva->insertLast(*new ficha('B', 3));
+    nueva->insertLast(*new ficha('D', 6));
+    nueva->insertLast(*new ficha('C', 2));
+    nueva->insertLast(*new ficha('D', 63));
+    nueva->insertLast(*new ficha('D', 63));
+    nueva->insertLast(*new ficha('A',2));
+    nueva->insertLast(*new ficha('B', 3));
+    nueva->insertLast(*new ficha('D', 6));
+    nueva->insertLast(*new ficha('A',2));
+    nueva->insertLast(*new ficha('C', 2));
+    nueva->insertLast(*new ficha('A',2));
+    nueva->insertLast(*new ficha('B', 3));
+    nueva->insertLast(*new ficha('C', 2));
+    nueva->insertLast(*new ficha('D', 63));
+    nueva->insertLast(*new ficha('D', 6));
+    nueva->insertLast(*new ficha('B', 3));
+    nueva->insertLast(*new ficha('D', 6));
+    nueva->insertLast(*new ficha('C', 2));
+    nueva->insertLast(*new ficha('D', 63));
+    nueva->insertLast(*new ficha('A',2));
+    nueva->insertLast(*new ficha('B', 3));
+    nueva->insertLast(*new ficha('D', 6));
+    nueva->insertLast(*new ficha('C', 2));
+    nueva->insertLast(*new ficha('D', 63));
+    nueva->insertLast(*new ficha('A',2));
+    nueva->insertLast(*new ficha('B', 3));
+    nueva->insertLast(*new ficha('D', 6));
+    nueva->insertLast(*new ficha('C', 2));
+    nueva->insertLast(*new ficha('D', 63));
+    nueva->insertLast(*new ficha('A',2));
+    nueva->insertLast(*new ficha('B', 3));
+    nueva->insertLast(*new ficha('D', 6));
+    nueva->insertLast(*new ficha('C', 2));
+    nueva->insertLast(*new ficha('D', 63));
+    nueva->insertLast(*new ficha('D', 63));
+    nueva->insertLast(*new ficha('A',2));
+    nueva->insertLast(*new ficha('B', 3));
+    nueva->insertLast(*new ficha('D', 6));
+    nueva->insertLast(*new ficha('A',2));
+    nueva->insertLast(*new ficha('C', 2));
+    nueva->insertLast(*new ficha('A',2));
+    nueva->insertLast(*new ficha('B', 3));
+    nueva->insertLast(*new ficha('C', 2));
+    nueva->insertLast(*new ficha('D', 63));
+    nueva->insertLast(*new ficha('D', 6));
+    nueva->insertLast(*new ficha('B', 3));
+    nueva->insertLast(*new ficha('D', 6));
+    nueva->insertLast(*new ficha('C', 2));
+    nueva->insertLast(*new ficha('D', 63));
+    nueva->insertLast(*new ficha('A',2));
+    nueva->insertLast(*new ficha('B', 3));
+    nueva->insertLast(*new ficha('D', 6));
+    nueva->insertLast(*new ficha('C', 2));
+    nueva->insertLast(*new ficha('D', 63));
+    nueva->insertLast(*new ficha('A',2));
+    nueva->insertLast(*new ficha('B', 3));
+    nueva->insertLast(*new ficha('D', 6));
+    nueva->insertLast(*new ficha('C', 2));
+    nueva->insertLast(*new ficha('D', 63));
+    nueva->insertLast(*new ficha('A',2));
+    nueva->insertLast(*new ficha('B', 3));
+    nueva->insertLast(*new ficha('D', 6));
+    nueva->insertLast(*new ficha('C', 2));
+    nueva->insertLast(*new ficha('D', 63));
+    nueva->insertLast(*new ficha('D', 63));
+    nueva->insertLast(*new ficha('A',2));
+    nueva->insertLast(*new ficha('B', 3));
+    nueva->insertLast(*new ficha('D', 6));
+    nueva->insertLast(*new ficha('A',2));
+    nueva->insertLast(*new ficha('C', 2));
+    nueva->insertLast(*new ficha('A',2));
+    nueva->insertLast(*new ficha('B', 3));
+    nueva->insertLast(*new ficha('C', 2));
+    nueva->insertLast(*new ficha('D', 63));
+    nueva->insertLast(*new ficha('D', 6));
+    nueva->insertLast(*new ficha('B', 3));
+    nueva->insertLast(*new ficha('D', 6));
+    nueva->insertLast(*new ficha('C', 2));
+    nueva->insertLast(*new ficha('D', 63));
+    nueva->insertLast(*new ficha('A',2));
+    nueva->insertLast(*new ficha('B', 3));
+    nueva->insertLast(*new ficha('D', 6));
+    nueva->insertLast(*new ficha('C', 2));
+    nueva->insertLast(*new ficha('D', 63));
+    nueva->insertLast(*new ficha('A',2));
+    nueva->insertLast(*new ficha('B', 3));
+    nueva->insertLast(*new ficha('D', 6));
+    nueva->insertLast(*new ficha('C', 2));
+    nueva->insertLast(*new ficha('D', 63));
+    nueva->insertLast(*new ficha('A',2));
+    nueva->insertLast(*new ficha('B', 3));
+    nueva->insertLast(*new ficha('D', 6));
+    nueva->insertLast(*new ficha('C', 2));
+    nueva->insertLast(*new ficha('D', 63));
+    nueva->insertLast(*new ficha('D', 63));
+    nueva->insertLast(*new ficha('A',2));
+    nueva->insertLast(*new ficha('B', 3));
+    nueva->insertLast(*new ficha('D', 6));
+    nueva->insertLast(*new ficha('A',2));
+    nueva->insertLast(*new ficha('C', 2));
+    nueva->insertLast(*new ficha('A',2));
+    nueva->insertLast(*new ficha('B', 3));
+    nueva->insertLast(*new ficha('C', 2));
+    nueva->insertLast(*new ficha('D', 63));
+    nueva->insertLast(*new ficha('D', 6));
+    nueva->insertLast(*new ficha('B', 3));
+    nueva->insertLast(*new ficha('D', 6));
+    nueva->insertLast(*new ficha('C', 2));
+    nueva->insertLast(*new ficha('D', 63));
+    nueva->insertLast(*new ficha('A',2));
+    nueva->insertLast(*new ficha('B', 3));
+    nueva->insertLast(*new ficha('D', 6));
+    nueva->insertLast(*new ficha('C', 2));
+    nueva->insertLast(*new ficha('D', 63));
+    nueva->insertLast(*new ficha('A',2));
+    nueva->insertLast(*new ficha('B', 3));
+    nueva->insertLast(*new ficha('D', 6));
+    nueva->insertLast(*new ficha('C', 2));
+    nueva->insertLast(*new ficha('D', 63));
+    nueva->insertLast(*new ficha('A',2));
+    nueva->insertLast(*new ficha('B', 3));
+    nueva->insertLast(*new ficha('D', 6));
+    nueva->insertLast(*new ficha('C', 2));
+    nueva->insertLast(*new ficha('D', 63));
+    nueva->insertLast(*new ficha('D', 63));
+    nueva->insertLast(*new ficha('A',2));
+    nueva->insertLast(*new ficha('B', 3));
+    nueva->insertLast(*new ficha('D', 6));
+    nueva->insertLast(*new ficha('A',2));
+    nueva->insertLast(*new ficha('C', 2));
+    nueva->insertLast(*new ficha('A',2));
+    nueva->insertLast(*new ficha('B', 3));
+    nueva->insertLast(*new ficha('C', 2));
+    nueva->insertLast(*new ficha('D', 63));
+    nueva->insertLast(*new ficha('D', 6));
+    nueva->insertLast(*new ficha('B', 3));
+    nueva->insertLast(*new ficha('D', 6));
+    nueva->insertLast(*new ficha('C', 2));
+    nueva->insertLast(*new ficha('D', 63));
+    nueva->insertLast(*new ficha('A',2));
+    nueva->insertLast(*new ficha('B', 3));
+    nueva->insertLast(*new ficha('D', 6));
+    nueva->insertLast(*new ficha('C', 2));
+    nueva->insertLast(*new ficha('D', 63));
+    nueva->insertLast(*new ficha('A',2));
+    nueva->insertLast(*new ficha('B', 3));
+    nueva->insertLast(*new ficha('D', 6));
+    nueva->insertLast(*new ficha('C', 2));
+    nueva->insertLast(*new ficha('D', 63));
+    nueva->insertLast(*new ficha('A',2));
+    nueva->insertLast(*new ficha('B', 3));
+    nueva->insertLast(*new ficha('D', 6));
+    nueva->insertLast(*new ficha('C', 2));
+    nueva->insertLast(*new ficha('D', 63));
+    nueva->insertLast(*new ficha('D', 63));
+    nueva->insertLast(*new ficha('A',2));
+    nueva->insertLast(*new ficha('B', 3));
+    nueva->insertLast(*new ficha('D', 6));
+    nueva->insertLast(*new ficha('A',2));
+    nueva->insertLast(*new ficha('C', 2));
+    nueva->insertLast(*new ficha('A',2));
+    nueva->insertLast(*new ficha('B', 3));
+    nueva->insertLast(*new ficha('C', 2));
+    nueva->insertLast(*new ficha('D', 63));
+    nueva->insertLast(*new ficha('D', 6));
+    nueva->insertLast(*new ficha('B', 3));
+    nueva->insertLast(*new ficha('D', 6));
+    nueva->insertLast(*new ficha('C', 2));
+    nueva->insertLast(*new ficha('D', 63));
 
     cout << nueva->getGraph() << endl;*/
-
-
-    /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<PRUEBA COLA>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
-
-    /*Cola<int> nuev = Cola<int>();
-    nuev.insertar(2);
-    nuev.insertar(1);
-    nuev.insertar(1);
-    nuev.insertar(3);
-    nuev.insertar(57);
-    nuev.insertar(1213);
-    nuev.insertar(11);
-
-    while(!nuev.colaVacia())
-    {
-        cout<<nuev.quitar()<< endl;
-    }*/
-
-
 
     /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<PRUEBA ARBOL>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
 
@@ -148,18 +298,6 @@ int main()
     //    n = n->enlaceNodo();
     //}
     */
-
-    /*<<<<<<<<<<<<<<<<<<<<<<<<<<<PRUEBA LISTA CIRCULAR DOBLEMENTE ENLAZADA>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
-
-    /*ListaCircularDoble<int> listaCircularDoble;
-    listaCircularDoble.insertarNodo(3);
-    listaCircularDoble.insertarNodo(4);
-    listaCircularDoble.insertarNodo(5);
-    listaCircularDoble.insertarNodo(6);
-    listaCircularDoble.insertarNodo(7);
-    listaCircularDoble.insertarNodo(8);
-    listaCircularDoble.imprimirLista();*/
-
 
     /*<<<<<<<<<<<<<<<<<<<<<<<<<<<PRUEBA CON LA MATRIZ DISPERSA>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
 
@@ -228,14 +366,60 @@ int main()
     lateral->recorrer();*/
 
     //---------------------Prueba de matriz------------------------------------------------
-    /*MatrizDispersa<int> *prueba = new MatrizDispersa<int>();
-    prueba->insertar(1,1,24);
-    prueba->insertar(1,2,23);
-    prueba->insertar(1,3,22);
-    prueba->insertar(1,4,21);
-    prueba->insertar(1,5,20);
-    prueba->insertar(1,6,23);
-    prueba->insertar(2,1,24);
-    prueba->insertar(2,2,23);*/
+    /*MatrizDispersa<char> *prueba = new MatrizDispersa<char>();
+    prueba->insertar(1,1,'A');
+    prueba->insertar(2,5,'B');
+    prueba->insertar(1,3,'C');
+    prueba->insertar(1,4,'D');
+    prueba->insertar(1,5,'E');
+    prueba->insertar(7,2,'F');
+    prueba->insertar(2,1,'G');
+    prueba->insertar(2,2,'H');
+    prueba->insertar(7,4,'I');
+    prueba->graphMatrix();*/
+
+    /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<PRUEBA COLA>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
+
+    /*Cola<ficha> nuev = Cola<ficha>();
+    nuev.insertar(*new ficha('D', 2));
+    nuev.insertar(*new ficha('B', 3));
+    nuev.insertar(*new ficha('P', 3));
+    nuev.insertar(*new ficha('A', 1));
+    nuev.insertar(*new ficha('H', 4));
+    nuev.insertar(*new ficha('V', 4));
+    nuev.insertar(*new ficha('V', 4));
+    nuev.insertar(*new ficha('D', 2));
+    nuev.insertar(*new ficha('B', 3));
+    nuev.insertar(*new ficha('P', 3));
+    nuev.insertar(*new ficha('A', 1));
+    nuev.insertar(*new ficha('H', 4));
+    nuev.insertar(*new ficha('V', 4));
+    nuev.insertar(*new ficha('V', 4));
+    nuev.insertar(*new ficha('D', 2));
+    nuev.insertar(*new ficha('B', 3));
+    nuev.insertar(*new ficha('P', 3));
+    nuev.insertar(*new ficha('A', 1));
+    nuev.insertar(*new ficha('H', 4));
+    nuev.insertar(*new ficha('V', 4));
+    nuev.insertar(*new ficha('V', 4));
+    nuev.insertar(*new ficha('D', 2));
+    nuev.insertar(*new ficha('B', 3));
+    nuev.insertar(*new ficha('P', 3));
+    nuev.insertar(*new ficha('A', 1));
+    nuev.insertar(*new ficha('H', 4));
+    nuev.insertar(*new ficha('V', 4));
+    nuev.insertar(*new ficha('V', 4));
+    cout << nuev.graph() << endl;*/
+
+    /*<<<<<<<<<<<<<<<<<<<<<<<<<<<PRUEBA LISTA CIRCULAR DOBLEMENTE ENLAZADA>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
+
+    /*ListaCircularDoble<string> listaCircularDoble;
+    listaCircularDoble.insertarNodo("HOLA");
+    listaCircularDoble.insertarNodo("MUNDO");
+    listaCircularDoble.insertarNodo("PRUEBA");
+    listaCircularDoble.insertarNodo("DICCIONARIO");
+    listaCircularDoble.imprimirLista();
+    cout << listaCircularDoble.graph() << endl;*/
+
     return  0;
 }

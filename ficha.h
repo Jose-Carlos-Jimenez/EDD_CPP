@@ -21,7 +21,9 @@ string ficha::getDatos()
     dato += letra;
     dato += ", ";
     dato += to_string(puntos);
+    dato += "pts";
     return dato;
 }
+
 
 #endif // FICHA_H

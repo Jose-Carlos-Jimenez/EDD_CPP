@@ -65,6 +65,22 @@ public:
         std::cout << tmp->dato << '\n';
     }
 
+    std::string graph()
+    {
+        std::string graphviz = "digraph{\n\tnode[shape=box];\n\tsplines=ortho\n";
+        graphviz.append("\t\n\tcolor= green;\n\tgraph[bgcolor = black];node[style = dashed color = yellow fontcolor = white]edge[color = red fontcolor = white]");
+        NodoLCD *tmp = head;
+        while(tmp->sig != head)
+        {
+            graphviz.append( "\n\t\"" + tmp->dato + "\"->\"" + tmp->sig->dato + "\"[dir=both");
+            graphviz.append("];");
+            tmp = tmp->sig;
+        }
+        graphviz.append("\n\t\"" + tmp->dato + "\" -> \"" + tmp->sig->dato + "\" [dir=both constraint=false];");
+        graphviz.append("\n}");
+        return graphviz;
+    }
+
 private:
 
     struct NodoLCD *buscar(T value)

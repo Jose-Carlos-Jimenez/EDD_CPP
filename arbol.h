@@ -107,6 +107,7 @@ public:
         graphviz = "";
         graphviz += "digraph INORDER{\n\t";
         graphviz += "node[shape=box]\n\trankdir=LR\n\t";
+        graphviz.append("color= green;graph[bgcolor = black];node[style = dashed color = yellow fontcolor = white]edge[color = red fontcolor = white]\n\t");
         inOrderG(arbol);
         graphviz[graphviz.length()-1] = ' ';
         graphviz[graphviz.length()-2] = ' ';
@@ -140,6 +141,7 @@ public:
         graphviz = "";
         graphviz += "digraph PREORDER{\n\t";
         graphviz += "node[shape=box]\n\trankdir=LR\n\t";
+        graphviz.append("color= green;graph[bgcolor = black];node[style = dashed color = yellow fontcolor = white]edge[color = red fontcolor = white]\n\t");
         preOrderG(arbol);
         graphviz[graphviz.length()-1] = ' ';
         graphviz[graphviz.length()-2] = ' ';
@@ -173,6 +175,7 @@ public:
         graphviz = "";
         graphviz += "digraph PREORDER{\n\t";
         graphviz += "node[shape=box]\n\trankdir=LR\n\t";
+        graphviz.append("color= green;graph[bgcolor = black];node[style = dashed color = yellow fontcolor = white]edge[color = red fontcolor = white]\n\t");
         posOrderG(arbol);
         graphviz[graphviz.length()-1] = ' ';
         graphviz[graphviz.length()-2] = ' ';
@@ -183,6 +186,7 @@ public:
     string graphTree(ABB arbol)
     {
        graphviz = "digraph TREE{\n\t";
+       graphviz.append("color= green;graph[bgcolor = black];node[style = dashed color = yellow fontcolor = white]edge[color = red fontcolor = white]\n\t");
        graph(arbol);
        graphviz += "}";
        return  graphviz;
